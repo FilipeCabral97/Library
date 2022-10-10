@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 20px;
+  width: 330px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.modal-header {
+  color: #402920;
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.modal-input {
+  font-size: 20px;
+  padding: 16px;
+  width: 300px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+
+.is-read {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#isRead {
+  width: 20px;
+  height: 20px;
+  accent-color: #402920;
+}
+
+.modal-btn {
+  background-color: #402920;
+  color: #f0e8e0;
+  font-weight: 600;
+  width: 100%;
+  font-size: 20px;
+  padding: 16px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
