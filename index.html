@@ -11,8 +11,60 @@
 </head>
 
 <body>
-    <h1>Library</h1>
-    <button class="open-modal-btn">Add book</button>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="./icons/books-library-knowledge-svgrepo-com.svg" alt="logo" id="logo-svg">
+                <h1 class="logo-text">Library</h1>
+            </div>
+            <button class="open-modal-btn">Add book</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h2 id="grid-header">My Books</h2>
+        <div class="books-grid">
+            <div class="book">
+                <button class="remove-card">X</button>
+                <div class="book-container">
+                    <div class="title-author">
+                        <p class="book-title">Atomic Habits</p>
+                        <p class="book-author"> by James Clear</p>
+                    </div>
+                    <div class="pages-button">
+                        <p class="pages">(p320)</p>
+                        <button class="isRead-btn">Read</button>
+                    </div>
+                </div>
+            </div>
+            <div class="book">
+                <button class="remove-card">X</button>
+                <div class="book-container">
+                    <div class="title-author">
+                        <p class="book-title">Atomic Habits But This Is Just A Test So Yeah Dont Mind Me</p>
+                        <p class="book-author"> by James Clear</p>
+                    </div>
+                    <div class="pages-button">
+                        <p class="pages">(p320)</p>
+                        <button class="isRead-btn">Read</button>
+                    </div>
+                </div>
+            </div>
+            <div class="book">
+                <button class="remove-card">X</button>
+                <div class="book-container">
+                    <div class="title-author">
+                        <p class="book-title">Atomic Habits For Noobs Like You And Me</p>
+                        <p class="book-author"> by James Clear</p>
+                    </div>
+                    <div class="pages-button">
+                        <p class="pages">(p320)</p>
+                        <button class="isRead-btn">Read</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <div class="modal">
         <div class="modal-content">
@@ -23,7 +75,7 @@
                 <input class="modal-input" id="pages" type="number" placeholder="Pages" required max="10000">
                 <div class="is-read">
                     <label for="isRead">Have you read it?</label>
-                    <input type="checkbox" id="isRead">
+                    <input type="checkbox" id="isRead" class="isReadModal">
                 </div>
                 <button class="modal-btn" type="submit">Submit</button>
             </form>
