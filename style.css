@@ -83,7 +83,7 @@ main {
 
 .books-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-auto-rows: 300px;
   gap: 26px;
 }
@@ -110,7 +110,6 @@ main {
   outline: none;
 }
 
-
 .book-container {
   width: 80%;
   height: 85%;
@@ -130,7 +129,7 @@ main {
 }
 
 .book-title {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 600;
   text-align: center;
 }
@@ -159,10 +158,9 @@ main {
   padding-bottom: 8px;
 }
 
-.isRead-btn {
-  background-color: #7a221fb7;
+.isRead-btn-green {
   background-color: #47817f;
-  width: 150px;
+  width: 170px;
   color: #f0e8e0;
   font-weight: 600;
   font-size: 20px;
@@ -170,6 +168,27 @@ main {
   border-radius: 10px;
   outline: none;
   border: none;
+  transition: ease-in-out 0.05s;
+}
+
+.isRead-btn-red {
+  background-color: #7a221fb7;
+  width: 170px;
+  color: #f0e8e0;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 16px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  transition: ease-in-out 0.05s;
+}
+
+.isRead-btn-green:hover {
+  opacity: 0.9;
+}
+.isRead-btn-red:hover {
+  opacity: 0.9;
 }
 
 /* --------- MODAL --------- */
