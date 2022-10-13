@@ -30,51 +30,39 @@ class Library {
 // CREATE LIBRARY
 const lib = new Library();
 
-const addBook = (e) => {
-  e.preventDefault();
-  const newBook = getBookFromInput();
-
-  if (lib.bookExists(newBook)) {
-    // errorMsg.textContent = "This book already exists in your library";
-    // errorMsg.classList.add("active");
-    alert("Book already exists");
-    return;
-  }
-
-  lib.addBook(newBook);
-
-  updateBooksGrid();
-  closeModal();
-};
-
 // ---------- INTERFACE ----------
-// * MODAL
 const modal = document.querySelector(".modal");
 const openModalBtn = document.querySelector(".open-modal-btn");
 const bookForm = document.querySelector(".modal-form");
+const booksGrid = document.querySelector(".books-grid");
 
 // Open Modal
-openModalBtn.onclick = () => {
+openModalBtn.onclick = () => openModal();
+
+// Close Modal
+window.onclick = (e) => {
+  if (e.target == modal) closeModal();
+};
+window.onkeydown = (e) => {
+  if (e.key === "Escape") closeModal();
+};
+
+const openModal = () => {
   resetModal();
   modal.style.display = "flex";
   document.querySelector("#title").focus();
 };
-// Close Modal
-window.onclick = (e) => {
-  if (e.target == modal) modal.style.display = "none";
-};
-window.onkeydown = (e) => {
-  if (e.key === "Escape") modal.style.display = "none";
-};
-
-bookForm.onsubmit = addBook;
-
 const closeModal = () => (modal.style.display = "none");
-
 const resetModal = () => bookForm.reset();
 
-// * GRID
-const booksGrid = document.querySelector(".books-grid");
+const getBookFromInput = () => {
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const isRead = document.querySelector("#isRead").checked;
+
+  return new Book(title, author, pages, isRead);
+};
 
 const createBookCard = (book) => {
   const bookCard = document.createElement("div");
@@ -104,6 +92,7 @@ const createBookCard = (book) => {
   pages.textContent = `(p${book.pages})`;
   removeBtn.textContent = "X";
 
+  readBtn.classList.add("isRead-btn");
   if (book.isRead) {
     readBtn.textContent = "Read";
     readBtn.classList.add("isRead-btn-green");
@@ -123,15 +112,19 @@ const createBookCard = (book) => {
   pagesReadBtnContainer.appendChild(readBtn);
 };
 
-const updateBooksGrid = () => {
-  resetBooksGrid();
-  for (let book of lib.books) {
-    createBookCard(book);
-  }
-};
+const addBook = (e) => {
+  e.preventDefault();
+  const newBook = getBookFromInput();
 
-const resetBooksGrid = () => {
-  booksGrid.innerHTML = "";
+  if (lib.bookExists(newBook)) {
+    alert("Book already exists");
+    return;
+  }
+
+  lib.addBook(newBook);
+
+  updateBooksGrid();
+  closeModal();
 };
 
 const removeBook = (e) => {
@@ -139,6 +132,17 @@ const removeBook = (e) => {
 
   lib.removeBook(title);
   updateBooksGrid();
+};
+
+const resetBooksGrid = () => {
+  booksGrid.innerHTML = "";
+};
+
+const updateBooksGrid = () => {
+  resetBooksGrid();
+  for (let book of lib.books) {
+    createBookCard(book);
+  }
 };
 
 const toggleRead = (e) => {
@@ -149,11 +153,4 @@ const toggleRead = (e) => {
   updateBooksGrid();
 };
 
-const getBookFromInput = () => {
-  const title = document.querySelector("#title").value;
-  const author = document.querySelector("#author").value;
-  const pages = document.querySelector("#pages").value;
-  const isRead = document.querySelector("#isRead").checked;
-
-  return new Book(title, author, pages, isRead);
-};
+bookForm.onsubmit = addBook;

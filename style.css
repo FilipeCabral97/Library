@@ -84,7 +84,7 @@ main {
 .books-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  grid-auto-rows: 300px;
+  grid-auto-rows: 260px;
   gap: 26px;
 }
 
@@ -158,37 +158,33 @@ main {
   padding-bottom: 8px;
 }
 
-.isRead-btn-green {
-  background-color: #47817f;
-  width: 170px;
-  color: #f0e8e0;
-  font-weight: 600;
-  font-size: 20px;
-  padding: 16px;
-  border-radius: 10px;
+.isRead-btn {
+  width: 140px;
   outline: none;
   border: none;
-  transition: ease-in-out 0.05s;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #fff;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.isRead-btn-green {
+  background-color: #00a753;
+}
+.isRead-btn-green:hover {
+  background-color: #008f47;
 }
 
 .isRead-btn-red {
-  background-color: #7a221fb7;
-  width: 170px;
-  color: #f0e8e0;
-  font-weight: 600;
-  font-size: 20px;
-  padding: 16px;
-  border-radius: 10px;
-  outline: none;
-  border: none;
-  transition: ease-in-out 0.05s;
-}
-
-.isRead-btn-green:hover {
-  opacity: 0.9;
+  background-color: #c40f08;
 }
 .isRead-btn-red:hover {
-  opacity: 0.9;
+  background-color: #a10d08;
 }
 
 /* --------- MODAL --------- */
